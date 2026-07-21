@@ -1,0 +1,87 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Hoppscotch personal collections",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/posts/1": {
+      "get": {
+        "summary": "GET post",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "operationId": "GET_post",
+        "tags": [
+          "Support Demo API"
+        ],
+        "security": []
+      }
+    },
+    "/comments": {
+      "get": {
+        "summary": "GET Comments",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "operationId": "GET_Comments",
+        "tags": [
+          "Support Demo API"
+        ],
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          }
+        ],
+        "security": []
+      }
+    },
+    "/posts": {
+      "post": {
+        "summary": "POST",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "operationId": "POST",
+        "tags": [
+          "Support Demo API"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "title": "Support ticket test",
+                "body": "Testing a POST request for SaaS support API basics.",
+                "userId": 1
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://jsonplaceholder.typicode.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Support Demo API"
+    }
+  ],
+  "x-hoppscotch-folder-tags": "slash",
+  "x-hoppscotch-workspace-root": true
+}
