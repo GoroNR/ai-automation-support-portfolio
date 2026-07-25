@@ -1,0 +1,82 @@
+# Project 2 — Support Ticket Automation
+
+## Project overview
+
+Project 2 is a practical Microsoft Power Automate support-ticket system built through multiple incremental exercises.
+
+The project demonstrates how support requests can be created manually, processed on a schedule and generated automatically from incoming emails.
+
+## Project components
+
+### 1. Recurring and instant flows
+
+This module demonstrates:
+
+- scheduled cloud flows
+- manually triggered flows
+- trigger inputs
+- Excel ticket creation
+- email notifications
+- run history
+- basic troubleshooting
+
+[Open recurring and instant flows](recurring_and_instant_flow/README.md)
+
+### 2. Email ticket intake
+
+This module demonstrates:
+
+- Outlook email triggers
+- attachment downloading
+- OneDrive file creation
+- subject-line parsing
+- Apply to each loops
+- automatic Excel ticket creation
+
+[Open email ticket intake](email_ticket_intake/README.md)
+
+## Current flow architecture
+
+```text
+Scheduled flow
+→ checks the support-ticket table
+→ sends a status email
+
+Manual flow
+→ accepts ticket information
+→ creates an Excel ticket
+→ sends a confirmation email
+
+Email intake flow
+→ receives an Outlook email
+→ parses its subject
+→ saves its attachments
+→ creates an Excel ticket
+```
+
+## Skills demonstrated
+
+- Microsoft Power Automate
+- automated, scheduled and instant cloud flows
+- Office 365 Outlook integration
+- Excel Online integration
+- OneDrive for Business integration
+- dynamic content
+- workflow expressions
+- string parsing
+- loops
+- flow testing
+- run-history analysis
+- troubleshooting
+- technical documentation
+
+## Planned extensions
+
+The project will be expanded with:
+
+- Excel table operations
+- priority conditions
+- approval workflows
+- structured error handling
+- final technical documentation
+```
