@@ -79,5 +79,5 @@ I bring long-term customer-facing experience from telecommunications and combine
 
 ## Contact
 
-- LinkedIn: replace this line with your public LinkedIn URL
+- LinkedIn: [https://www.linkedin.com/in/adrian-bryszewski](https://www.linkedin.com/in/adrian-bryszewski/)
 - GitHub: this repository
