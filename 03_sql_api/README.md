@@ -19,7 +19,7 @@ The project includes:
 - monthly support reporting,
 - documented business findings.
 
-[View the SQL Support Reporting project](projects/01_sql_support_reporting/)
+[View the SQL Support Reporting project](../05_projects/03_sql_support_reporting/)
 
 ## Learning exercises
 

@@ -1,28 +1,46 @@
-# Support Tickets Demo
+# SaaS Support & Customer Success
 
-This is my first demo project for SaaS / Technical Support learning.
+This section contains my learning exercises and practical artifacts related to SaaS Support, Customer Success and support operations.
 
-## Goal
-Create a simple support ticket table with categories, priorities, statuses and draft customer replies.
+## Featured project
 
-## Tools used
-- Google Sheets
-- Markdown
-- GitHub / Google Drive
+### AI-Assisted SaaS Support Workflow
 
-## What I practiced
-- Basic ticket structure
-- Ticket categorization
-- Priority assignment
-- Writing short customer support replies in English
-- Organizing portfolio files
+A practical support workflow demonstrating how AI can assist with ticket classification, response preparation, escalation and documentation.
 
-## Example ticket categories
-- login
-- billing
-- bug
-- feature_request
-- onboarding
+[View the AI-Assisted SaaS Support Workflow](../05_projects/01_ai_assisted_saas_support_workflow/)
 
-## Next step
-Use AI and automation tools to classify tickets and generate better first-draft replies.
+## Learning exercises
+
+The learning section includes exercises covering:
+
+- the customer success lifecycle,
+- SaaS onboarding,
+- professional support replies,
+- customer communication,
+- support process design.
+
+[View learning exercises](learning/)
+
+## Support artifacts
+
+The artifacts section includes:
+
+- a support KPI dashboard,
+- a support process map,
+- supporting documentation,
+- operational support materials.
+
+[View support artifacts](artifacts/)
+
+## Skills demonstrated
+
+- SaaS Support
+- Customer Success
+- customer onboarding
+- ticket handling
+- support communication
+- support process mapping
+- KPI reporting
+- AI-assisted support workflows
+- technical documentation

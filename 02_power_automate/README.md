@@ -12,7 +12,7 @@ An automated support workflow that processes incoming emails, saves ticket infor
 
 The project also includes retry settings, Configure run after, error handling and TRY/CATCH-style workflow logic.
 
-[View the Power Automate Support Ticket Automation project](projects/02_support_ticket_automation/)
+[View the Power Automate Support Ticket Automation project](../05_projects/02_power_automate_support_ticket_automation/)
 
 ## Learning exercises
 
