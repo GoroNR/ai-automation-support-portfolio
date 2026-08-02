@@ -46,7 +46,7 @@ Enter approval request details
     → If rejected: update Excel and notify customer
 ```
 
-![Approval flow designer](D35_approvals_screenshots/01_approval_flow_designer.png)
+![Approval flow designer](screenshots/01_approval_flow_designer.png)
 
 ## Approval-request inputs
 

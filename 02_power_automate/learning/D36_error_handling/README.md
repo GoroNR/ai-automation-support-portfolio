@@ -54,7 +54,7 @@ SUCCESS - Record successful update
     Record successful ticket update
 ```
 
-![Try/Catch flow designer](D36_error_handling_screenshots/02_try_catch_flow_designer.png)
+![Try/Catch flow designer](screenshots/02_try_catch_flow_designer.png)
 
 ## Retry policy
 

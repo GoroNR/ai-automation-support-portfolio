@@ -52,7 +52,7 @@ Manually trigger a flow
 → Update a row
 ```
 
-![Update ticket flow designer](D33_excel_tables_screenshots/01_update_ticket_flow_designer.png)
+![Update ticket flow designer](screenshots/01_update_ticket_flow_designer.png)
 
 ## Excel table requirements
 

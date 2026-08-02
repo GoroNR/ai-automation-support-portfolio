@@ -37,7 +37,7 @@ For a production implementation, a controlled backup owner or service account sh
 | P2 - Refund and Access Approval | Instant | Requests human approval for refund or access actions |
 | P2 - Resilient Ticket Update | Instant | Updates tickets with structured error handling |
 
-![Project 2 flow inventory](D37_documentation_screenshots/01_project_2_flow_inventory.png)
+![Project 2 flow inventory](screenshots/01_project_2_flow_inventory.png)
 
 ## Main business process
 

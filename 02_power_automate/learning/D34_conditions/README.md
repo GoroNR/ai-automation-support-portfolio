@@ -62,7 +62,7 @@ ResponseTarget
 EscalationRequired
 ```
 
-![Priority routing flow designer](D34_conditions_screenshots/01_priority_routing_flow_designer.png)
+![Priority routing flow designer](screenshots/01_priority_routing_flow_designer.png)
 
 ## Excel ticket record
 
