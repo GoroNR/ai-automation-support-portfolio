@@ -1,35 +1,64 @@
-# SQL and API Support Practice
+# SQL & API Portfolio
 
-This folder contains practical exercises related to support data, API requests and technical troubleshooting.
+This section contains my SQL and API learning exercises and practical portfolio projects focused on SaaS Support, Technical Support and support operations.
 
-## SQL exercises
+## Portfolio projects
 
-| File | Topic |
-|---|---|
-| [D13_sql_select_where.md](D13_sql_select_where.md) | SELECT and WHERE |
-| [D14_sql_filter_sort.md](D14_sql_filter_sort.md) | Filtering and sorting |
-| [D15_sql_joins.md](D15_sql_joins.md) | JOIN operations |
-| [D16_sql_groupby_reporting.md](D16_sql_groupby_reporting.md) | GROUP BY and support reporting |
+### SQL Support Reporting Practice
 
-## API exercises
+A relational SQLite project containing 15 operational SQL reports for analyzing support ticket volume, priorities, ownership, customer activity, first response time and resolution performance.
 
-| File | Topic |
-|---|---|
-| [D18_api_basics.md](D18_api_basics.md) | GET requests and API fundamentals |
-| [D19_status_codes.md](D19_status_codes.md) | HTTP status-code interpretation |
-| [D20_api_troubleshooting_case_study.md](D20_api_troubleshooting_case_study.md) | Structured API troubleshooting case |
-| [support_demo_api_openapi.json](support_demo_api_openapi.json) | OpenAPI export containing GET and POST examples |
-| [postman_get_posts_1.png](postman_get_posts_1.png) | Screenshot of a successful GET request |
-| [sqlbolt6.png](sqlbolt6.png) | Screenshot from SQL practice |
+The project includes:
 
-## Skills demonstrated
+- a relational customer and ticket dataset,
+- 15 SQL reporting queries,
+- filtering and sorting,
+- table joins,
+- aggregate functions,
+- `GROUP BY` and `HAVING`,
+- monthly support reporting,
+- documented business findings.
 
-- SQL filtering, sorting, joins and aggregation
-- Interpreting HTTP requests and responses
-- Recognising common status codes
-- Documenting API troubleshooting
-- Using API request-testing tools
+[View the SQL Support Reporting project](projects/01_sql_support_reporting/)
 
-## Important note
+## Learning exercises
 
-The JSON export in this folder is an OpenAPI export, not a native Postman Collection v2.1 export. A native Postman collection can be added later as a separate portfolio improvement.
+### SQL
+
+Exercises covering:
+
+- `SELECT`
+- `WHERE`
+- filtering and sorting
+- SQL joins
+- aggregate functions
+- `GROUP BY`
+- support reporting
+
+[View SQL learning exercises](learning/sql/)
+
+### API
+
+Exercises covering:
+
+- API fundamentals
+- HTTP methods
+- HTTP status codes
+- GET requests
+- Postman
+- API troubleshooting
+- OpenAPI documentation
+
+[View API learning exercises](learning/api/)
+
+## Technologies
+
+- SQL
+- SQLite
+- DB Browser for SQLite
+- REST APIs
+- Postman
+- OpenAPI
+- Markdown
+- Git
+- GitHub
