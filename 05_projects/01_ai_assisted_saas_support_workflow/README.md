@@ -55,7 +55,7 @@ The flow detects incoming support emails and creates new records in an Excel tab
 
 Related project:
 
-[Support Email to Excel Flow](../02_power_automate/support_email_to_sheet_flow.png)
+[Support Email to Excel Flow](../02_power_automate_support_ticket_automation/screenshots/support_email_to_sheet_flow.png)
 
 ## Microsoft Outlook
 
@@ -105,7 +105,7 @@ The AI step was designed as a structured prompt and blueprint. A paid OpenAI or 
 
 Related project:
 
-[AI Support Automation Blueprint](../02_power_automate/ai_support_automation_blueprint.png)
+[AI Support Automation Blueprint](ai_support_automation_blueprint.png)
 
 ## AI reply-generation prompt
 
@@ -307,7 +307,7 @@ Adrian
 
 More customer reply examples:
 
-[Support Reply Examples](../01_support_ticketing/support_reply_examples.md)
+[Support Reply Examples](../../01_support_ticketing/learning/support_reply_examples.md)
 
 ---
 
@@ -315,15 +315,13 @@ More customer reply examples:
 
 ## Support ticket spreadsheet
 
-[Open the ticket dataset](../01_support_ticketing/Support_Tickets_Demo_KPI_Dashboard.xlsx)
-
-![Support ticket spreadsheet](../01_support_ticketing/support_tickets_demo.png)
+[Open the ticket dataset](../../01_support_ticketing/artifacts/Support_Tickets_Demo_KPI_Dashboard.xlsx)
 
 The spreadsheet contains fictional SaaS support tickets with categories, priorities, statuses, owners, reply drafts and KPI fields.
 
 ## Support KPI dashboard
 
-![Support KPI dashboard](../01_support_ticketing/support_kpi_dashboard_v1.png)
+![Support KPI dashboard](../../01_support_ticketing/artifacts/support_kpi_dashboard_v1.png)
 
 The dashboard presents:
 
@@ -350,7 +348,7 @@ Incoming email
 
 ## Support process map
 
-![SaaS support process map](../01_support_ticketing/support_process_map.png)
+![AI support automation blueprint](ai_support_automation_blueprint.png)
 
 The process map shows the relationship between:
 
@@ -361,7 +359,7 @@ The process map shows the relationship between:
 
 ## Power Automate flow
 
-![Support email to Excel flow](../02_power_automate/support_email_to_sheet_flow.png)
+![Support email to Excel flow](../02_power_automate_support_ticket_automation/screenshots/support_email_to_sheet_flow.png)
 
 The flow captures incoming emails containing `SUPPORT` in the subject and adds the extracted information to an Excel table.
 
