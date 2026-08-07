@@ -47,22 +47,22 @@ The goal of this project was to design a workflow that reduces manual data entry
 
 # Solution overview
 
-The workflow follows this process:
+The proposed support process follows this structure:
 
 ```text
 Incoming customer email
         ↓
 Extract email information
         ↓
-Create support ticket record
+Create structured support ticket
         ↓
 AI-assisted classification
         ↓
-Assign category and priority
+Suggest category and priority
         ↓
-Generate suggested next action
+Suggest next action
         ↓
-Generate draft response
+Generate draft reply
         ↓
 Human review
         ↓
@@ -70,7 +70,9 @@ Approve / Edit / Reject / Escalate
         ↓
 Send final response
         ↓
-Update ticket data and reporting
+Update ticket data
+        ↓
+Support reporting
 ```
 
 ---
@@ -79,19 +81,23 @@ Update ticket data and reporting
 
 ## Microsoft Power Automate
 
-Used to create the email-to-spreadsheet automation.
+Power Automate was used to create the working email-to-spreadsheet automation.
 
-The flow detects incoming support emails and creates new records in an Excel table.
+The flow detects incoming support emails and creates structured ticket records in Excel.
 
 Related project:
 
-[View the Power Automate Support Ticket Automation](../02_power_automate_support_ticket_automation/)
+[View Project 2 — Support Ticket Automation](../02_support_ticket_automation/)
+
+Detailed flow documentation:
+
+[View Support Email to Sheet Flow](../02_support_ticket_automation/support_email_to_sheet_flow.md)
 
 ---
 
 ## Microsoft Outlook
 
-Used as the source of incoming customer emails.
+Outlook was used as the source of incoming customer emails.
 
 Example trigger:
 
@@ -99,11 +105,20 @@ Example trigger:
 When a new email arrives and the subject contains "SUPPORT"
 ```
 
+The automation extracts information such as:
+
+```text
+received_at
+sender_email
+subject
+body_preview
+```
+
 ---
 
 ## Excel Online
 
-Used as a simple support ticket register.
+Excel was used as a lightweight support ticket register and reporting source.
 
 The table stores fields such as:
 
@@ -122,7 +137,7 @@ resolution_hours
 satisfaction_score
 ```
 
-Support dataset and KPI workbook:
+The support dataset was also used to create a KPI dashboard.
 
 [Open the Support KPI Dashboard workbook](../../01_support_ticketing/artifacts/Support_Tickets_Demo_KPI_Dashboard.xlsx)
 
@@ -130,7 +145,7 @@ Support dataset and KPI workbook:
 
 ## AI classification prompt
 
-The classification prompt is designed to suggest:
+A structured AI prompt was designed to suggest:
 
 ```text
 category
@@ -141,7 +156,7 @@ confidence
 needs_human_escalation
 ```
 
-The AI step was designed as a structured prompt and workflow blueprint.
+The AI stage was designed as a reusable prompt and workflow blueprint.
 
 A paid OpenAI or AI Builder connector was not required for the prototype.
 
@@ -154,15 +169,18 @@ Related files:
 
 ## AI reply-generation prompt
 
-A second AI prompt is used to prepare concise, empathetic and professional support reply drafts.
+A second prompt was designed to prepare concise and professional customer reply drafts.
 
-The prompt is designed to avoid:
+The prompt requires responses to be:
 
-- unsupported promises,
-- invented troubleshooting results,
-- automatic refund promises,
-- unsupported policy statements,
-- sending responses without human review.
+- concise,
+- empathetic,
+- professional,
+- based only on available information,
+- free from unsupported promises,
+- ready for human review.
+
+The draft is not treated as an automatically approved customer response.
 
 ---
 
@@ -170,18 +188,18 @@ The prompt is designed to avoid:
 
 SQL was used separately to practise reporting and analysis on fictional SaaS support data.
 
-The SQL portfolio includes:
+The SQL work includes:
 
-- filtering support tickets,
-- joining customer and ticket data,
-- grouping tickets by category and priority,
-- calculating average resolution time,
+- support ticket filtering,
+- joins between customer and ticket data,
+- ticket counts by category and priority,
 - workload analysis,
+- average resolution time,
 - monthly support reporting.
 
 Related project:
 
-[View the SQL Support Reporting project](../03_sql_support_reporting/)
+[View Project 3 — SQL Support Reporting](../03_sql_support_reporting/)
 
 ---
 
@@ -189,13 +207,13 @@ Related project:
 
 Markdown and GitHub were used to document:
 
-- the support workflow,
-- AI prompts,
+- workflow design,
+- prompts,
+- screenshots,
 - risks and controls,
 - support examples,
-- project screenshots,
 - business value,
-- technical implementation.
+- project results.
 
 ---
 
@@ -228,9 +246,11 @@ subject
 body_preview
 ```
 
+These values can be stored as structured ticket information.
+
 ---
 
-## 3. Create a support ticket record
+## 3. Create a spreadsheet record
 
 The flow adds a new row to the support ticket table.
 
@@ -242,7 +262,7 @@ priority = medium
 status = new
 ```
 
-These values can later be reviewed or replaced by the classification result.
+These fields can later be reviewed or replaced by the classification result.
 
 ---
 
@@ -269,7 +289,7 @@ The classification prompt limits allowed values and instructs the model not to i
 
 ## 5. Update the support record
 
-The suggested classification can be added to the ticket record.
+The classification result can be added to the structured ticket record.
 
 Example:
 
@@ -293,7 +313,7 @@ The prompt requires the response to be:
 - empathetic,
 - professional,
 - based only on available information,
-- free from unsupported resolution promises,
+- free from unsupported refund or resolution promises,
 - ready for human review.
 
 ---
@@ -319,13 +339,15 @@ reject
 escalate
 ```
 
+Human review remains mandatory before a final customer response is sent.
+
 ---
 
 ## 8. Send the response
 
-The final customer response is sent only after human approval.
+The final response is sent only after human approval.
 
-The AI-generated draft is never treated as an automatically approved answer.
+The AI-generated draft is never automatically treated as the final customer answer.
 
 ---
 
@@ -376,7 +398,7 @@ Ticket body:
 Return JSON only.
 ```
 
-The extended prompt documentation is available here:
+Full prompt documentation:
 
 [View Support Classification Prompts](prompts_support_classification.md)
 
@@ -397,13 +419,13 @@ Best,
 Adrian
 ```
 
-More customer communication examples:
+More customer reply examples:
 
 [View Support Reply Examples](../../01_support_ticketing/learning/support_reply_examples.md)
 
 ---
 
-# Screenshots and project evidence
+# Project evidence
 
 ## Support KPI dashboard
 
@@ -432,7 +454,7 @@ The blueprint presents the conceptual AI-assisted workflow:
 Incoming email
 → Extract email data
 → AI classification
-→ Store structured ticket data
+→ Store structured ticket information
 → Generate reply draft
 → Human review
 → Send approved response
@@ -459,11 +481,11 @@ The process map shows the relationship between:
 
 ## Power Automate implementation
 
-![Support email to Excel flow](../02_power_automate_support_ticket_automation/screenshots/support_email_to_sheet_flow.png)
+![Support email to Excel flow](../02_support_ticket_automation/screenshots/support_email_to_sheet_flow.png)
 
-The working Power Automate implementation captures incoming support emails and stores structured ticket information in Excel.
+The initial working Power Automate flow captures incoming support emails and stores structured information in Excel.
 
-The extended automation project also includes:
+Additional Power Automate exercises expanded the workflow with:
 
 - Conditions,
 - Switch actions,
@@ -473,7 +495,38 @@ The extended automation project also includes:
 - Configure run after,
 - TRY/CATCH-style error handling.
 
-[View the complete Power Automate project](../02_power_automate_support_ticket_automation/)
+[View the complete Support Ticket Automation project](../02_support_ticket_automation/)
+
+The project also contains additional automation case studies:
+
+- [Email Ticket Intake](../02_support_ticket_automation/email_ticket_intake/)
+- [Recurring and Instant Flow](../02_support_ticket_automation/recurring_and_instant_flow/)
+
+---
+
+# Additional SaaS Support materials
+
+## SaaS onboarding
+
+A separate onboarding exercise covers:
+
+- account setup,
+- customer data import,
+- user roles,
+- integrations,
+- training,
+- first-success metrics,
+- follow-up planning.
+
+[View SaaS Onboarding Checklist](../../01_support_ticketing/learning/saas_onboarding_checklist.md)
+
+---
+
+## Customer Success lifecycle
+
+Additional learning material covers the customer lifecycle and Customer Success processes.
+
+[View SaaS Support & Customer Success learning materials](../../01_support_ticketing/learning/)
 
 ---
 
@@ -504,8 +557,8 @@ Customer messages may contain:
 - passwords,
 - API keys,
 - payment information,
-- account information,
-- other confidential data.
+- account details,
+- other confidential information.
 
 **Control:**  
 Only required fields should be processed. Sensitive information should be removed or masked.
@@ -514,10 +567,10 @@ Only required fields should be processed. Sensitive information should be remove
 
 ## Prompt injection
 
-A customer email may contain text intended to manipulate the AI system.
+A customer email may contain instructions intended to manipulate the AI.
 
 **Control:**  
-The model is instructed to treat customer messages as data rather than trusted instructions.
+The model is instructed to treat customer messages as customer data rather than trusted system instructions.
 
 ---
 
@@ -534,7 +587,7 @@ The workflow should include:
 - notifications,
 - manual fallback procedures.
 
-The Power Automate portfolio project contains additional error-handling exercises.
+The Power Automate project contains additional exercises focused specifically on error handling.
 
 ---
 
@@ -562,7 +615,7 @@ The workflow also creates structured support data that can later be used for:
 - identifying recurring product problems,
 - identifying customers requiring additional onboarding.
 
-Human review remains mandatory, helping reduce the risks associated with incorrect classifications, hallucinated answers and inappropriate customer communication.
+Human review remains mandatory, helping reduce the risks of incorrect classifications, hallucinated answers and inappropriate customer communication.
 
 ---
 
@@ -574,15 +627,15 @@ During this project, I learned how to:
 - create an email-triggered Power Automate flow,
 - connect Outlook with Excel Online,
 - map dynamic email fields into spreadsheet columns,
-- design structured AI classification prompts,
+- design a structured AI classification prompt,
 - generate professional customer reply drafts,
 - include human review in an AI-assisted workflow,
 - identify risks related to sensitive data and hallucination,
-- calculate and present support KPIs,
+- calculate and present basic support KPIs,
 - document a workflow for a technical portfolio,
-- separate a conceptual AI workflow from its practical automation implementation.
+- separate conceptual AI workflow design from practical automation implementation.
 
-I also learned that automation should support the support agent rather than completely replace human decision-making.
+I also learned that automation should support the agent rather than completely replace human decision-making.
 
 ---
 
@@ -603,30 +656,35 @@ Human-in-the-Loop Review
 Ticket Classification
 Support KPI Reporting
 Customer Communication
+Customer Onboarding
 Technical Documentation
 Risk Analysis
+SQL Fundamentals
 Git
 GitHub
 ```
 
 ---
 
-# Project files
+# Project files and related resources
 
-| File / resource | Description |
+| Resource | Description |
 |---|---|
 | [AI Support Automation Blueprint](ai_support_automation_blueprint.md) | Detailed AI-assisted workflow design |
-| [Support Classification Prompts](prompts_support_classification.md) | Structured prompts used for ticket classification |
-| [Support KPI Dashboard](../../01_support_ticketing/artifacts/Support_Tickets_Demo_KPI_Dashboard.xlsx) | Fictional support dataset and KPI workbook |
+| [Support Classification Prompts](prompts_support_classification.md) | Structured prompts used for support classification |
+| [Support KPI Dashboard](../../01_support_ticketing/artifacts/Support_Tickets_Demo_KPI_Dashboard.xlsx) | Fictional support ticket dataset and KPI workbook |
 | [Support Reply Examples](../../01_support_ticketing/learning/support_reply_examples.md) | Customer communication examples |
-| [Power Automate Project](../02_power_automate_support_ticket_automation/) | Working support automation project |
-| [SQL Support Reporting](../03_sql_support_reporting/) | SQL analysis and reporting project |
+| [SaaS Onboarding Checklist](../../01_support_ticketing/learning/saas_onboarding_checklist.md) | Customer onboarding exercise |
+| [Support Ticket Automation](../02_support_ticket_automation/) | Power Automate project |
+| [Email Ticket Intake](../02_support_ticket_automation/email_ticket_intake/) | Email intake automation |
+| [Recurring and Instant Flow](../02_support_ticket_automation/recurring_and_instant_flow/) | Scheduled and manually triggered automation examples |
+| [SQL Support Reporting](../03_sql_support_reporting/) | SQL operational reporting project |
 
 ---
 
 # How I would explain this project in an interview
 
-1. I created a prototype SaaS support workflow that captures incoming customer emails and stores them as structured tickets.
+1. I created a prototype SaaS support workflow that captures incoming customer emails and stores them as structured support tickets.
 
 2. I designed an AI prompt that classifies each request by category, priority, customer tone and recommended next action.
 
@@ -634,16 +692,18 @@ GitHub
 
 4. I included a mandatory human review step because AI classifications and generated responses can contain errors or unsupported information.
 
-5. I implemented the email-to-Excel automation using Microsoft Power Automate and later expanded the automation with conditional routing, approvals and error handling.
+5. I implemented the email-to-Excel automation using Microsoft Power Automate and later expanded my Power Automate work with conditional routing, approvals and error handling.
 
-6. I used structured support data to create KPI reporting and SQL-based operational analysis.
+6. I created a support KPI dashboard and used structured support data for operational reporting.
 
-7. The business goal was to reduce repetitive support work, improve ticket consistency and make support reporting easier.
+7. I later expanded the reporting side with a separate SQL Support Reporting project.
+
+8. The business goal was to reduce repetitive support work, improve ticket consistency and make support reporting easier.
 
 ---
 
 # Related portfolio projects
 
-- [Project 2 — Power Automate Support Ticket Automation](../02_power_automate_support_ticket_automation/)
+- [Project 2 — Support Ticket Automation](../02_support_ticket_automation/)
 - [Project 3 — SQL Support Reporting](../03_sql_support_reporting/)
 - [SaaS Support & Customer Success materials](../../01_support_ticketing/)
